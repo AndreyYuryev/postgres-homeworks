@@ -1,7 +1,8 @@
 -- Напишите запросы, которые выводят следующую информацию:
 -- 1. Название компании заказчика (company_name из табл. customers) и ФИО сотрудника, работающего над заказом этой компании (см таблицу employees),
 -- когда и заказчик и сотрудник зарегистрированы в городе London, а доставку заказа ведет компания United Package (company_name в табл shippers)
-select customers.company_name, employees.first_name
+select customers.company_name,
+concat(employees.first_name, ' ', employees.last_name) as full_name
 from orders
 inner join customers using(customer_id)
 inner join employees using(employee_id)
